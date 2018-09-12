@@ -14,8 +14,20 @@ hist(q1, xlab="Vetor", ylab = "Frequencia", main = "Histograma para o gerador", 
 #hist(q2)
 hist(-(log(1-q1))/10, main = "Histograma de dados exponencial", col = c, xlab = "F(t) = 1 -e^(-10t)")
 
-hist(rpois(1000, 5), main = "Histograma de Poisson", col = c, xlab = "Poisson com 1000 variaveis e lambda = 5")
+hist(rpois(1000, 5), main = "Histograma de Poisson", col = c, ylim=range(0,250),xlab = "Poisson com 1000 variaveis e lambda = 5")
 #q3 <- rpois(1000, 5)
 #hist(q3)
 
-hist(rnorm(1000, 500, 100), main = "Histograma de Sn")
+#hist(rnorm(1000, 500, 100), main = "Histograma de Sn")
+tabela <- function(a, b, c) {
+  result <- c()
+  for(i in 1:1000){
+    result[i] <- sum(rnorm(a, b, c))
+  }
+  return(result)
+}
+
+somatorio <- tabela(100, 5, 1)
+
+hist(somatorio, main = "Histograma de Sn", xlab = "∑Xi ~ N(n.mean, n.sd)", col = c(7))
+
