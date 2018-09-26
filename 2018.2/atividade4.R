@@ -6,8 +6,10 @@ calculaEstimador = function(n) {
     media[i] <- mean(rnorm(n, 500, sqrt(10)))
     mediana[i] <- median(rnorm(n, 500, sqrt(10)))
   }
+  
   media_medias <- mean(media)
   var_medias <- var(media)
+  
   media_medianas <- mean(mediana)
   var_medianas <- var(mediana)
   
@@ -29,16 +31,21 @@ letra_e
 # 2
 
 calculaEstimadorU <- function(n) {
+
+
   amostra <- c()
   for(i in 1: 10000) {
     amostra[i] <- runif(n,0,500 )
   }
   estimador1 <- 2*mean(amostra)
   estimador2 <- ((n+1)/n)*max(amostra)
-  
+  boxplot(estimador1, estimador2)
   return (data.frame(estimador1, estimador2))
 }
 
 teta <- calculaEstimadorU(100)
 
 teta
+
+
+
