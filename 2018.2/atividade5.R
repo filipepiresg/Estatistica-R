@@ -1,12 +1,15 @@
 # 1
 # letra a)
-tamPop <- 1243088
+eleitorCandA <- 522097
+eleitorDifCandA <- 720991
+tamPop <- eleitorCandA + eleitorDifCandA
 populacao <- numeric(tamPop)
-for( i in 1: 522097) {
+for( i in 1: eleitorCandA) {
   populacao[i] <- 1;
 }
 
 proporcaoPopulacional <- sum(populacao)/tamPop
+proporcaoPopulacional
 
 # codigo em comum pra letra b)
 calculaProporcaoAmostral <- function(k, n, conf.level = 0.95) {
@@ -37,3 +40,6 @@ amostrasTam1000n2200
 
 
 proporcaoPopulacional
+
+
+
